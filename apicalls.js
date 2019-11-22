@@ -15,6 +15,11 @@ $(document).ready(function(){
     var apiIconCode = "10d"; //replace with icon code from api responses
     var apiIconURL = apiIconsBaseString + apiIconCode + ".png"; //may need to add @2x before .png
 
+    var apiUVBaseString = "http://api.openweathermap.org/data/2.5/uvi?";
+    var apiUVlat = "lat=" + "36.17"; // need to replace with variable populated by api response 36.174465
+    var apiUVlon = "&lon=" + "-86.77"; // need to replace with variable populated by api response -86.767960
+    var apiUVURL = apiUVBaseString + apiUVlat + apiUVlon + apiKey;
+
     //api calls
 
     //current weather
@@ -34,6 +39,16 @@ $(document).ready(function(){
             method: "GET",
         }).then(function(apiFCastResponse) {
         console.log(apiFCastResponse);
+        });
+    });
+
+    //UV
+    $("#uvtestbtn").on("click", function(event) {
+        $.ajax({
+            url: apiUVURL,
+            method: "GET",
+        }).then(function(apiUVResponse) {
+        console.log(apiUVResponse);
         });
     });
 
