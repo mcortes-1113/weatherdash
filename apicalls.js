@@ -2,14 +2,16 @@ $(document).ready(function(){
 
     //api variables
 
+    var proxy = "https://cors-anywhere.herokuapp.com/";
+
     var apiCurrentBaseString = "api.openweathermap.org/data/2.5/weather?q=";
     var apiFCastBaseString = "api.openweathermap.org/data/2.5/forecast?q=";
     var apiCity = "nashville"; //replace with city name from user input
     var apiCountry = ",US";
     var apiKey = "&appid=f63825a9b274e4cb840e2e60d64d9e3c";
     
-    var apiCurrentURL = apiCurrentBaseString + apiCity + apiCountry + apiKey;
-    var apiFCastURL = apiFCastBaseString + apiCity + apiCountry + apiKey;
+    var apiCurrentURL = proxy + apiCurrentBaseString + apiCity + apiCountry + apiKey;
+    var apiFCastURL = proxy + apiFCastBaseString + apiCity + apiCountry + apiKey;
 
     var apiIconsBaseString = "http://openweathermap.org/img/wn/";
     var apiIconCode = "10d"; //replace with icon code from api responses
@@ -27,6 +29,12 @@ $(document).ready(function(){
         $.ajax({
             url: apiCurrentURL,
             method: "GET",
+            dataType: "JSON",
+            // headers: {
+            //     //had to add in headers to retrieve information. ***research***
+            //     "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
+            //     "x-rapidapi-key": "f63825a9b274e4cb840e2e60d64d9e3c",
+            //     }
         }).then(function(apiCurrentResponse) {
         console.log(apiCurrentResponse);
         });
@@ -37,6 +45,7 @@ $(document).ready(function(){
         $.ajax({
             url: apiFCastURL,
             method: "GET",
+            dataType: "JSON",
         }).then(function(apiFCastResponse) {
         console.log(apiFCastResponse);
         });
