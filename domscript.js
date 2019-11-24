@@ -10,7 +10,7 @@
     // var currentTemp;
     // var humidity;
     // var wind;
-    var UV;
+    // var UV;
 
 // variables for forecast section
 
@@ -28,11 +28,16 @@
     // var windEl = $("<span>" + wind + "</span>");
     // var UVEl = $("<span>" + UV + "</span>");
 
-    function createCurrentElements(apiCurrentResponse) {
+    function createCurrentElements(apiCurrentResponse, UV) {
         var city = 'city: ' + apiCurrentResponse.name;
         var currentTemp = 'temp: ' + apiCurrentResponse.main.temp + 'F';
         var humidity = 'humidity: ' +apiCurrentResponse.main.humidity + '%';
         var wind = 'wind speed: ' + apiCurrentResponse.wind.speed + 'mph';
+        var UV = 'UV index: ' + apiUVResponse.value;
+
+        console.log(UV);
+        console.log(apiUVResponse.value);
+
         
             var cityEl = $("<span>" + city + "</span><br>");
             var currentTempEl = $("<span>" + currentTemp + "</span><br>");
@@ -49,13 +54,5 @@
     };
 
     $(document).ready(function(){
-
-// create elements
-
-
-    // function createElements(apiCurrentResponse) {
-    //     city = 'city: ' + apiCurrentResponse.name;
-    //     $('#currenttestbtn').append(cityEl);
-    // };
 
 });
