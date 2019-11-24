@@ -1,19 +1,26 @@
 $(document).ready(function(){
 
     var searchHistory = [];
-
+    var lastCity;
     var searchCount;
 
+    searchHistory = localStorage.getItem("searchHistory");
+    searchHistory = searchHistory ? JSON.parse(searchHistory) : [];
+    historyArr = searchHistory.data;
+    historyArr = historyArr ? searchHistory = historyArr : searchHistory = []
+
+    lastCity = searchHistory[0];
+    lastCity = lastCity ? lastCity = lastCity : "no recent searches";
+
+    console.log("last search: " + lastCity);
+
+    console.log(searchHistory);
+
+    searchCount = searchHistory.length;
+    console.log("search count: " + searchCount);  
+
     $("#searchtestbtn").on("click", function(event) {
-        searchHistory = localStorage.getItem("searchHistory");
-        searchHistory = searchHistory ? JSON.parse(searchHistory) : [];
-        historyArr = searchHistory.data;
-        historyArr = historyArr ? searchHistory = historyArr : searchHistory = []
 
-        console.log(searchHistory);
-
-        searchCount = searchHistory.length;
-        console.log("search count: " + searchCount);  
 
         var currentSearch = $("#userSearchInput").val();
         if (searchCount > 4) {
@@ -33,16 +40,12 @@ $(document).ready(function(){
         console.log(searchHistory);
 
         var searchObj = {
-            data: searchHistory
+            data: searchHistory,
+            lastCity: currentSearch
         }
         localStorage.setItem("searchHistory", JSON.stringify(searchObj));
         console.log(JSON.parse(localStorage.searchHistory));
 
-        var lastSearch;
     })
-
-
-
-    //function to remove last array element using pop and add new element using unshift
 
 });
