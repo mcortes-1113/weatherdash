@@ -69,18 +69,32 @@ body {
 }
 
 #currentWeather {
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
     padding-right: 5px;
 }
 
-.gap {
+/* .gap {
     background-color: whitesmoke;
-}
+} */
 
-.searchContainer {
-    background-color: whitesmoke;
-}
+/* .searchContainer {
+    /* background-color: whitesmoke; */
+} */
 
 #searchHistoryText, #searchHistoryItems {
     text-align: center;
+}
+
+.container {
+    background-color: whitesmoke;
+}
+
+.forecastText {
+    font-size: 20pt;
+}
+
+.forecastDiv {
+    background-color: #557A95;
+    font-size: 10pt;
+    margin: 15px;
 }
