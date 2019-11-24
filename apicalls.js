@@ -1,4 +1,3 @@
-$(document).ready(function(){
 
     //api variables
 
@@ -53,11 +52,10 @@ $(document).ready(function(){
                 url: apiUVURL,
                 method: "GET",
             }).then(function(apiUVResponse) {
-                UV = 'UV index: ' + apiUVResponse.value
-                console.log(UV);
-                console.log(apiUVResponse.value);
+                // UV = 'UV index: ' + apiUVResponse.value
                 console.log(apiUVResponse);
             });
+            // return UV;
         };
 
     //forecast
@@ -67,9 +65,45 @@ $(document).ready(function(){
             method: "GET", 
             dataType: "JSON",
         }).then(function(apiFCastResponse) {
-        console.log(apiFCastResponse);
+        // showFCastData();
+
+        // function showFCastData(apiFCastResponse) {
+
+            console.log(apiFCastResponse);
+
+            var nextDay = apiFCastResponse.list[4];
+            var nextDayWeatherIcons = nextDay.weather[0];
+            var nextDay2 = apiFCastResponse.list[12];
+            var nextDay2WeatherIcons = nextDay2.weather[0];
+            var nextDay3 = apiFCastResponse.list[20];
+            var nextDay3WeatherIcons = nextDay3.weather[0];
+            var nextDay4 = apiFCastResponse.list[28];
+            var nextDay4WeatherIcons = nextDay4.weather[0];
+            var nextDay5 = apiFCastResponse.list[36];
+            var nextDay5WeatherIcons = nextDay5.weather[0];
+        
+            var nextDayData = [nextDay.dt_txt, nextDay.main.humidity, nextDay.main.temp, nextDayWeatherIcons.icon];
+            var nextDay2Data = [nextDay2.dt_txt, nextDay2.main.humidity, nextDay2.main.temp, nextDay2WeatherIcons.icon];
+            var nextDay3Data = [nextDay3.dt_txt, nextDay3.main.humidity, nextDay3.main.temp, nextDay3WeatherIcons.icon];
+            var nextDay4Data = [nextDay4.dt_txt, nextDay4.main.humidity, nextDay4.main.temp, nextDay4WeatherIcons.icon];
+            var nextDay5Data = [nextDay5.dt_txt, nextDay5.main.humidity, nextDay5.main.temp, nextDay5WeatherIcons.icon];
+
+            var FCastResultsTest = [nextDayData, nextDay2Data, nextDay3Data, nextDay4Data, nextDay5Data];
+
+            console.log(FCastResultsTest);
+            
+            // var FCastResultsTest;
+        
+            // };
         });
+
+
+
     });
+
+    //need to create separate arrays for each date returned
+
+
 
     // * Include a 5-Day Forecast below the current weather conditions. Each day for the 5-Day Forecast should display the following:
 
@@ -81,6 +115,7 @@ $(document).ready(function(){
   
     // * Humidity
 
+    $(document).ready(function(){
 
 
 });
