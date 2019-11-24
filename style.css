@@ -1,3 +1,50 @@
 body {
     font-family: 'Alata', sans-serif;
+    background-color: #FBEEC1;
+}
+
+#headerWrapper {
+    background-color: #8D8741;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+
+#title {
+    font-size: 24pt;
+    font-weight: bolder;
+    color: #FBEEC1;
+}
+
+#byLine {
+    font-size: 12pt;
+    color: #FBEEC1;
+    float: right;
+    bottom: 0px;
+}
+
+.row {
+    margin-top: 10px;
+}
+
+.col-md-4 {
+    padding: 0;
+}
+
+.currentLoc {
+    color: #8D8741;
+    font-weight: bold;
+}
+/* #currentLoc {
+    font-size: 20pt;
+} */
+
+#searchDiv {
+    padding: 0px;
+}
+
+#searchBtn {
+    font-size: 8pt;
+    background-color: white;
 }
