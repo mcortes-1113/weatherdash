@@ -1,4 +1,7 @@
 
+$("#currentLoc").text("Nashville");
+$("#currentTemp").text("45 F");
+
 // variables for current weather section
 
     // var city;
@@ -54,5 +57,7 @@
     };
 
     $(document).ready(function(){
+
+
 
 });
