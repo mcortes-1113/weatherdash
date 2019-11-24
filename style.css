@@ -1,10 +1,10 @@
 body {
     font-family: 'Alata', sans-serif;
-    background-color: #FBEEC1;
+    background-color: #557A95;
 }
 
 #headerWrapper {
-    background-color: #8D8741;
+    background-color: #5D5C61;
     width: 100%;
     height: auto;
     padding: 0;
@@ -14,12 +14,12 @@ body {
 #title {
     font-size: 24pt;
     font-weight: bolder;
-    color: #FBEEC1;
+    color: whitesmoke;
 }
 
 #byLine {
     font-size: 12pt;
-    color: #FBEEC1;
+    color: whitesmoke;
     float: right;
     bottom: 0px;
 }
@@ -33,12 +33,15 @@ body {
 }
 
 .currentLoc {
-    color: #8D8741;
-    font-weight: bold;
+    color: black;
+    /* font-weight: bold; */
 }
-/* #currentLoc {
-    font-size: 20pt;
-} */
+
+#currentLoc {
+    font-size: 14pt;
+    font-weight: bolder;
+    color: #501b1d;
+}
 
 #searchDiv {
     padding: 0px;
@@ -46,5 +49,38 @@ body {
 
 #searchBtn {
     font-size: 8pt;
-    background-color: white;
+    background-color: WHITE;
+}
+
+#currentWeatherDate {
+    float: right;
+}
+
+#currentWeatherIcon {
+    float: right;
+}
+
+#currentWeatherTempData {
+    font-size: 16pt;
+    clear: both;
+}
+.currentWeatherDetails {
+    float: right;
+}
+
+#currentWeather {
+    background-color: whitesmoke;
+    padding-right: 5px;
+}
+
+.gap {
+    background-color: whitesmoke;
+}
+
+.searchContainer {
+    background-color: whitesmoke;
+}
+
+#searchHistoryText, #searchHistoryItems {
+    text-align: center;
 }
