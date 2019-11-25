@@ -12,12 +12,12 @@ $(document).ready(function(){
     lastCity = searchHistory[0];
     lastCity = lastCity ? lastCity = lastCity : "no recent searches";
 
-    console.log("last search: " + lastCity);
+    // console.log("last search: " + lastCity);
 
-    console.log(searchHistory);
+    // console.log(searchHistory);
 
     searchCount = searchHistory.length;
-    console.log("search count: " + searchCount);  
+    // console.log("search count: " + searchCount);  
 
     $("#searchtestbtn").on("click", function(event) {
 
@@ -35,16 +35,16 @@ $(document).ready(function(){
             searchHistory.reverse();
         }
         searchCount = searchHistory.length;
-        console.log("search history size: " + searchHistory.length);
-        console.log("new search count: " + searchCount);
-        console.log(searchHistory);
+        // console.log("search history size: " + searchHistory.length);
+        // console.log("new search count: " + searchCount);
+        // console.log(searchHistory);
 
         var searchObj = {
             data: searchHistory,
             lastCity: currentSearch
         }
         localStorage.setItem("searchHistory", JSON.stringify(searchObj));
-        console.log(JSON.parse(localStorage.searchHistory));
+        // console.log(JSON.parse(localStorage.searchHistory));
 
     })
 
