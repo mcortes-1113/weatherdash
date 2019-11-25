@@ -20,6 +20,11 @@ var apiIconURL = apiIconsBaseString + apiIconCode + ".png"; //may need to add @2
 var defaultCity;
 var apiDefaultURL;
 
+var apiUVlat;
+var apiUVlon;
+var apiUVURL;
+var UV;
+
 
 // var currentLat;
 // var currentLon;
@@ -104,7 +109,13 @@ var apiDefaultURL;
             url: apiDefaultURL,
             method: "GET",
         }).then(function(apiDefaultResponse) {
-            // getUV(apiCurrentResponse);
+            apiUVlat = "lat=" + apiDefaultResponse.coord.lat; 
+            apiUVlon = "&lon=" + apiDefaultResponse.coord.lon;
+            apiUVURL = apiUVBaseString + apiUVlat + apiUVlon + apiKey;
+            console.log(apiUVlat);
+            console.log(apiUVlon);
+            console.log(apiUVURL);
+            getUV(apiDefaultResponse);
             console.log(apiDefaultResponse);
             var currentDate = moment().format("MM/DD/YYYY");
             var currentCity = apiDefaultResponse.name;
@@ -129,26 +140,25 @@ var apiDefaultURL;
 
     //api variables
 
-    // var apiUVlat = "lat=" + "36.17"; // need to replace with variable populated by api response 36.174465
-    // var apiUVlon = "&lon=" + "-86.77"; // need to replace with variable populated by api response -86.767960
-    // var apiUVURL = apiUVBaseString + apiUVlat + apiUVlon + apiKey;
 
     //api calls
 
 
 
         //UV
-        function getUV(apiCurrentResponse){
-            var apiUVlat = 'lat=' + apiCurrentResponse.coord.lat;
-            var apiUVlon = 'lon=' + apiCurrentResponse.coord.lon;
+        function getUV(apiDefaultResponse){
+            var apiUVlat = 'lat=' + apiDefaultResponse.coord.lat;
+            var apiUVlon = 'lon=' + apiDefaultResponse.coord.lon;
             var apiUVURL = apiUVBaseString + apiUVlat + '&' + apiUVlon + apiKey;
 
             $.ajax({
                 url: apiUVURL,
                 method: "GET",
             }).then(function(apiUVResponse) {
-                // UV = 'UV index: ' + apiUVResponse.value
+                UV = 'UV index: ' + apiUVResponse.value
                 console.log(apiUVResponse);
+                console.log(UV);
+                $("#currentWeatherUVData").text(UV);
             });
             // return UV;
         };
