@@ -73,14 +73,6 @@ body {
     padding-right: 5px;
 }
 
-/* .gap {
-    background-color: whitesmoke;
-} */
-
-/* .searchContainer {
-    /* background-color: whitesmoke; */
-} */
-
 #searchHistoryText, #searchHistoryItems {
     text-align: center;
 }
@@ -98,3 +90,19 @@ body {
     font-size: 10pt;
     margin: 15px;
 }
+
+#currentWeatherCity,
+#currentWeatherTempData {
+    font-size: 38pt;
+}
+
+
+#currentWeatherDate{
+    font-size: 28pt;
+
+}
+
+.currentWeatherText {
+    color: #501b1d;
+}
+
