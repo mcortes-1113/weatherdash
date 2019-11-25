@@ -1,56 +1,141 @@
+var proxy = "https://cors-anywhere.herokuapp.com/";
+var apiCurrentBaseString = "api.openweathermap.org/data/2.5/weather?q=";
+var apiFCastBaseString = "api.openweathermap.org/data/2.5/forecast?q=";
+var apiUVBaseString = "http://api.openweathermap.org/data/2.5/uvi?";
+var apiLocationBaseString = "api.openweathermap.org/data/2.5/weather?";
+var apiUnits = "&units=imperial";
+var apiIconsBaseString = "http://openweathermap.org/img/wn/";
+
+var apiCity = "nashville"; //replace with city name from user input
+var apiCountry = ",US";
+var apiKey = "&appid=f63825a9b274e4cb840e2e60d64d9e3c";
+
+var apiCurrentURL = proxy + apiCurrentBaseString + apiCity + apiCountry + apiKey + apiUnits;
+var apiFCastURL = proxy + apiFCastBaseString + apiCity + apiCountry + apiKey + apiUnits;
+
+var apiIconsBaseString = "http://openweathermap.org/img/wn/";
+var apiIconCode = "10d"; //replace with icon code from api responses
+var apiIconURL = apiIconsBaseString + apiIconCode + ".png"; //may need to add @2x before .png
+
+var defaultCity;
+var apiDefaultURL;
 
 
-    // navigator.geolocation.getCurrentPosition(function(position) {
-    //     console.log(position.coords.latitude);
-    //     console.log(position.coords.longitude);
-    //   });
+// var currentLat;
+// var currentLon;
+// var apiLocationURL;
+
+// //Get current location and assign coordinate values to variable
+// navigator.geolocation.getCurrentPosition(function(position) {
+// currentLat = position.coords.latitude;
+// currentLon = position.coords.longitude;
+// apiLocationURL = proxy + apiLocationBaseString + "lat=" + currentLat + "&lon=" + currentLon;
+// console.log(currentLat);
+// console.log(currentLon);
+// console.log(apiLocationURL);
+// getCurrentLocationData(event);
+// });
+// function getCurrentLocationData(event) {
+//     console.log(currentLat);
+//     console.log(currentLon);
+//     console.log(apiLocationURL);
+//     $.ajax({
+//         url: apiLocationURL,
+//         method: "GET",
+//     }).then(function(apiLocationResponse) {
+//         var currentCity = apiLocationResponse.name;
+//         var currentTemp = apiLocationResponse.main.temp + " F";
+//         var currentIconCode = apiLocationResponse.weather.icon
+//         var currentIconSource = apiIconsBaseString + currentIconCode + ".png";
+//         var locationIconImageEl = "<img src=" + currentIconSource + ">"
+//         $("#currentLoc").textContent(currentCity);
+//         $("#currentTemp").textContent(currentTemp);
+//         $("#locationIcon").prepend(locationIconImageEl);
+
+//         // getUV(apiLocationResponse);
+//         // createCurrentElements(apiCurrentResponse);
+
+//         console.log(apiLocationResponse);
+//     });
+// };
+
+    //current weather
+
+    // function getCurrentWeather(event) {
+    //     $.ajax({
+    //         url: apiCurrentURL,
+    //         method: "GET",
+    //     }).then(function(apiCurrentResponse) {
+    //         // getUV(apiCurrentResponse);
+    //         // createCurrentElements(apiCurrentResponse);
+    //         console.log('city: ' + apiCurrentResponse.name);
+    //         console.log('temp: ' + apiCurrentResponse.main.temp + 'F');
+    //         console.log('humidity: ' +apiCurrentResponse.main.humidity + '%');
+    //         console.log('wind speed: ' + apiCurrentResponse.wind.speed + 'mph');
+    //         console.log('lat: ' + apiCurrentResponse.coord.lat);
+    //         console.log('lon: ' + apiCurrentResponse.coord.lon);
+    //         console.log(apiCurrentResponse);
+    //     });
+    // };
+
+    // function populateCurrentElements(event) {
+    // $.ajax({
+    //     url: apiLocationURL,
+    //     method: "GET",
+    // }).then(function(apiLocationResponse) {
+    //     var currentCity = apiLocationResponse.name;
+    //     var currentTemp = apiLocationResponse.main.temp + " F";
+    //     var currentIconCode = apiLocationResponse.weather.icon
+    //     var currentIconSource = apiIconsBaseString + currentIconCode + ".png";
+    //     var locationIconImageEl = "<img src=" + currentIconSource + ">"
+    //     $("#currentLoc").textContent(currentCity);
+    //     $("#currentTemp").textContent(currentTemp);
+    //     $("#locationIcon").prepend(locationIconImageEl);
+
+    //     // getUV(apiLocationResponse);
+    //     // createCurrentElements(apiCurrentResponse);
+
+    //     console.log(apiLocationResponse);
+    // });
+
+
+    function getDefaultWeather(event) {
+        $.ajax({
+            url: apiDefaultURL,
+            method: "GET",
+        }).then(function(apiDefaultResponse) {
+            // getUV(apiCurrentResponse);
+            console.log(apiDefaultResponse);
+            var currentDate = moment().format("MM/DD/YYYY");
+            var currentCity = apiDefaultResponse.name;
+            var currentTemp = apiDefaultResponse.main.temp + " F";
+            var currentHum = apiDefaultResponse.main.humidity + " %";
+            var currentWind = apiDefaultResponse.wind.speed + 'mph';
+            var currentIconCode = apiDefaultResponse.weather[0].icon;
+            var currentIconSource = apiIconsBaseString + currentIconCode + ".png";
+            var locationIconImageEl = "<img src=" + currentIconSource + ">";
+            $("#currentWeatherCity").text(currentCity);
+            $("#currentWeatherTemp").val(currentTemp);
+            $("#currentWeatherIcon").prepend(locationIconImageEl);
+            $("#currentWeatherTempData").text(currentTemp);
+            $("#currentWeatherHumidityData").text(currentHum);
+            $("#currentWeatherWindSpeedData").text(currentWind);
+            $("#currentWeatherDate").text(currentDate);
+        });
+    };
+
+
+
 
     //api variables
 
-
-
-
-
-    var proxy = "https://cors-anywhere.herokuapp.com/";
-
-    var apiCurrentBaseString = "api.openweathermap.org/data/2.5/weather?q=";
-    var apiFCastBaseString = "api.openweathermap.org/data/2.5/forecast?q=";
-    var apiCity = "nashville"; //replace with city name from user input
-    var apiCountry = ",US";
-    var apiKey = "&appid=f63825a9b274e4cb840e2e60d64d9e3c";
-    var apiUnits = "&units=imperial";
-    
-    var apiCurrentURL = proxy + apiCurrentBaseString + apiCity + apiCountry + apiKey + apiUnits;
-    var apiFCastURL = proxy + apiFCastBaseString + apiCity + apiCountry + apiKey + apiUnits;
-
-    var apiIconsBaseString = "http://openweathermap.org/img/wn/";
-    var apiIconCode = "10d"; //replace with icon code from api responses
-    var apiIconURL = apiIconsBaseString + apiIconCode + ".png"; //may need to add @2x before .png
-
-    var apiUVBaseString = "http://api.openweathermap.org/data/2.5/uvi?";
     // var apiUVlat = "lat=" + "36.17"; // need to replace with variable populated by api response 36.174465
     // var apiUVlon = "&lon=" + "-86.77"; // need to replace with variable populated by api response -86.767960
     // var apiUVURL = apiUVBaseString + apiUVlat + apiUVlon + apiKey;
 
     //api calls
 
-    //current weather
-    $("#currenttestbtn").on("click", function(event) {
-        $.ajax({
-            url: apiCurrentURL,
-            method: "GET",
-        }).then(function(apiCurrentResponse) {
-            getUV(apiCurrentResponse);
-            createCurrentElements(apiCurrentResponse);
-            // console.log('city: ' + apiCurrentResponse.name);
-            // console.log('temp: ' + apiCurrentResponse.main.temp + 'F');
-            // console.log('humidity: ' +apiCurrentResponse.main.humidity + '%');
-            // console.log('wind speed: ' + apiCurrentResponse.wind.speed + 'mph');
-            // console.log('lat: ' + apiCurrentResponse.coord.lat);
-            // console.log('lon: ' + apiCurrentResponse.coord.lon);
-            console.log(apiCurrentResponse);
-        });
-    });
+
 
         //UV
         function getUV(apiCurrentResponse){
@@ -125,7 +210,15 @@
   
     // * Humidity
 
-    $(document).ready(function(){
 
+
+            // var apiIconCode = "10d"; //replace with icon code from api responses
+            // var apiIconURL = apiIconsBaseString + apiIconCode + ".png"; //may need to add @2x before .png
+            $(document).ready(function(){
+                defaultCity = localStorage.getItem("searchHistory");
+                defaultCity = JSON.parse(defaultCity);
+                defaultCity = defaultCity.lastCity;
+                apiDefaultURL = proxy + apiCurrentBaseString + defaultCity + apiCountry + apiKey + apiUnits;
+                getDefaultWeather(event);
 
 });
