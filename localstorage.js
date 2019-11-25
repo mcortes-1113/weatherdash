@@ -19,10 +19,10 @@ $(document).ready(function(){
     searchCount = searchHistory.length;
     // console.log("search count: " + searchCount);  
 
-    $("#searchtestbtn").on("click", function(event) {
+    $("#searchButton").on("click", function(event) {
 
 
-        var currentSearch = $("#userSearchInput").val();
+        var currentSearch = $("#userInput").val();
         if (searchCount > 4) {
             // searchHistory.reverse();
             searchHistory.pop();
