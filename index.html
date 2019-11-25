@@ -30,8 +30,8 @@
                 <span id="currentTemp" class="currentLoc"></span>
             </div>
 
-            <div class="col-md-1">
-                <span class="currentLoc">Current Icon</span>
+            <div id="locationIcon" class="col-md-1">
+                <span class="currentLoc"></span>
             </div>
 
             <div id="searchDiv" class="col-md-4 offset-1">
@@ -44,15 +44,15 @@
 
                 <div class="row">
                     <div id="currentWeather" class="col-md-7">
-                        <span id="currentWeatherCity" class="currentWeatherText">City placeholder</span>
-                        <span id="currentWeatherDate" class="currentWeatherText">Date placeholder</span>
+                        <span id="currentWeatherCity" class="currentWeatherText"></span>
+                        <span id="currentWeatherDate" class="currentWeatherText"></span>
                         <br><br><br>
                         <span id="currentWeatherTemp" class="currentWeatherText">Current Temp:</span>
-                        <span id="currentWeatherIcon" class="currentWeatherText">Icon placeholder</span>
+                        <span id="currentWeatherIcon" class="currentWeatherText"></span>
                         <br><br>
                         <span id="currentWeatherTempData" class="currentWeatherText">Temp placeholder</span>
                         <br>
-                        <span id="currentWeatherHumidityData" class="currentWeatherText currentWeatherDetails">HumData</span>
+                        <span id="currentWeatherHumidityData" class="currentWeatherText currentWeatherDetails"></span>
                         <span id="currentWeatherHumidityText" class="currentWeatherText currentWeatherDetails">Humidity:</span>
                         <br>
                         <span id="currentWeatherWindSpeedData" class="currentWeatherText currentWeatherDetails">WindData</span>
@@ -112,16 +112,18 @@
     </div>
 
 
+    <!-- <div id="current">
+            <br><br><br><br>
+            <button id="currenttestbtn" >Test Current API Call</button>
+        </div> -->
+
                     <!-- <div id="searchhis">
                             <br><br><br><br>
                             <input type="text" size="40" id="userSearchInput">
                             <br><br>
                             <button id="searchtestbtn" >Test Search History</button>
                     </div>
-                    <div id="current">
-                        <br><br><br><br>
-                        <button id="currenttestbtn" >Test Current API Call</button>
-                    </div>
+
                     <div id="fcast">
                         <br><br><br><br>
                         <button id="fcasttestbtn" >Test Forecast API Call</button>
