@@ -11,7 +11,7 @@ var apiCountry = ",US";
 var apiKey = "&appid=f63825a9b274e4cb840e2e60d64d9e3c";
 
 var apiCurrentURL = proxy + apiCurrentBaseString + apiCity + apiCountry + apiKey + apiUnits;
-var apiFCastURL = proxy + apiFCastBaseString + apiCity + apiCountry + apiKey + apiUnits;
+var apiFCastURL; // = proxy + apiFCastBaseString + apiCity + apiCountry + apiKey + apiUnits;
 
 var apiIconsBaseString = "http://openweathermap.org/img/wn/";
 var apiIconCode = "10d"; //replace with icon code from api responses
@@ -117,6 +117,8 @@ var UV;
             console.log(apiUVURL);
             getUV(apiDefaultResponse);
             console.log(apiDefaultResponse);
+            apiFCastURL = proxy + apiFCastBaseString + apiCity + apiCountry + apiKey + apiUnits;
+            getForecast(event);
             var currentDate = moment().format("MM/DD/YYYY");
             var currentCity = apiDefaultResponse.name;
             var currentTemp = apiDefaultResponse.main.temp + " F";
@@ -164,7 +166,8 @@ var UV;
         };
 
     //forecast
-    $("#fcasttestbtn").on("click", function(event) {
+    // $("#fcasttestbtn").on("click", function(event) {
+        function getForecast(event){
         $.ajax({
             url: apiFCastURL,
             method: "GET", 
@@ -187,7 +190,68 @@ var UV;
             var nextDay5 = apiFCastResponse.list[36];
             var nextDay5WeatherIcons = nextDay5.weather[0];
         
-            var nextDayData = [nextDay.dt_txt, nextDay.main.humidity, nextDay.main.temp, nextDayWeatherIcons.icon];
+            var nextDayData = {
+                date : nextDay.dt_txt,
+                hum : nextDay.main.humidity,
+                temp : nextDay.main.temp,
+                icon : nextDayWeatherIcons.icon
+            };
+
+            var nextDay2Data = {
+                date : nextDay2.dt_txt,
+                hum : nextDay2.main.humidity,
+                temp : nextDay2.main.temp,
+                icon : nextDay2WeatherIcons.icon
+            };
+
+            var nextDay3Data = {
+                date : nextDay3.dt_txt,
+                hum : nextDay3.main.humidity,
+                temp : nextDay3.main.temp,
+                icon : nextDay3WeatherIcons.icon
+            };
+
+            var nextDay4Data = {
+                date : nextDay4.dt_txt,
+                hum : nextDay4.main.humidity,
+                temp : nextDay4.main.temp,
+                icon : nextDay4WeatherIcons.icon
+            };
+
+            var nextDay5Data = {
+                date : nextDay5.dt_txt,
+                hum : nextDay5.main.humidity,
+                temp : nextDay5.main.temp,
+                icon : nextDay5WeatherIcons.icon
+            };
+
+            console.log(nextDayData);
+
+            $("#nextDayDate").text(nextDayData.date);
+            $("#nextDayIcon").text(nextDayData.icon);
+            $("#nextDayTemp").text(nextDayData.temp);
+            $("#nextDayHum").text(nextDayData.hum);
+
+            $("#nextDay2Date").text(nextDay2Data.date);
+            $("#nextDay2Icon").text(nextDay2Data.icon);
+            $("#nextDay2Temp").text(nextDay2Data.temp);
+            $("#nextDay2Hum").text(nextDay2Data.hum);
+
+            $("#nextDay3Date").text(nextDay3Data.date);
+            $("#nextDay3Icon").text(nextDay3Data.icon);
+            $("#nextDay3Temp").text(nextDay3Data.temp);
+            $("#nextDay3Hum").text(nextDay3Data.hum);
+
+            $("#nextDay4Date").text(nextDay4Data.date);
+            $("#nextDay4Icon").text(nextDay4Data.icon);
+            $("#nextDay4Temp").text(nextDay4Data.temp);
+            $("#nextDay4Hum").text(nextDay4Data.hum);
+
+            $("#nextDay5Date").text(nextDay5Data.date);
+            $("#nextDay5Icon").text(nextDay5Data.icon);
+            $("#nextDay5Temp").text(nextDay5Data.temp);
+            $("#nextDay5Hum").text(nextDay5Data.hum);
+
             var nextDay2Data = [nextDay2.dt_txt, nextDay2.main.humidity, nextDay2.main.temp, nextDay2WeatherIcons.icon];
             var nextDay3Data = [nextDay3.dt_txt, nextDay3.main.humidity, nextDay3.main.temp, nextDay3WeatherIcons.icon];
             var nextDay4Data = [nextDay4.dt_txt, nextDay4.main.humidity, nextDay4.main.temp, nextDay4WeatherIcons.icon];
@@ -204,7 +268,7 @@ var UV;
 
 
 
-    });
+    };
 
     //need to create separate arrays for each date returned
 
