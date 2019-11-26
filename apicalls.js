@@ -123,8 +123,6 @@ var UV;
                 icon : nextDay5WeatherIcons.icon
             };
 
-            console.log(nextDayData);
-
             $("#nextDayDate").text(nextDayData.date);
             $("#nextDayIcon").text(nextDayData.icon);
             $("#nextDayTemp").text(nextDayData.temp);
@@ -165,7 +163,7 @@ var UV;
                 // defaultCity = localStorage.getItem("searchHistory");
                 // defaultCity = JSON.parse(defaultCity);
                 // defaultCity = defaultCity.lastCity;
-                defaultCity = "orlando";
+                defaultCity = lastCity;
                 apiDefaultURL = proxy + apiCurrentBaseString + defaultCity + apiCountry + apiKey + apiUnits;
                 getDefaultWeather(event);
 
