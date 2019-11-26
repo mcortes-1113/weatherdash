@@ -38,12 +38,12 @@ var UV;
             getForecast(event);
             var currentDate = moment().format("MM/DD/YYYY");
             var currentCity = apiDefaultResponse.name;
-            var currentTemp = apiDefaultResponse.main.temp + " F";
+            var currentTemp = parseInt(apiDefaultResponse.main.temp);
             var currentHum = apiDefaultResponse.main.humidity + " %";
-            var currentWind = apiDefaultResponse.wind.speed + 'mph';
+            var currentWind = parseInt(apiDefaultResponse.wind.speed) + 'mph';
             var currentIconCode = apiDefaultResponse.weather[0].icon;
             var currentIconSource = apiIconsBaseString + currentIconCode + ".png";
-            var locationIconImageEl = "<img src=" + currentIconSource + ">";
+            var locationIconImageEl = "<img width=150px height=150px src=" + currentIconSource + ">";
             $("#currentWeatherCity").text(currentCity);
             $("#currentWeatherTemp").val(currentTemp);
             $("#currentWeatherIcon").prepend(locationIconImageEl);
@@ -64,7 +64,7 @@ var UV;
                 url: apiUVURL,
                 method: "GET",
             }).then(function(apiUVResponse) {
-                UV = 'UV index: ' + apiUVResponse.value;
+                UV = 'UV index: ' + parseInt(apiUVResponse.value);
                 $("#currentWeatherUVData").text(UV);
             });
         };
@@ -106,35 +106,31 @@ var UV;
             var nextDayData = {
                 date : moment(nextDay.dt_txt).format("MM/DD/YYYY"),
                 hum : "Humidity: " + nextDay.main.humidity + "%",
-                temp : "Temp: " + nextDay.main.temp + " F",
+                temp : "Temp: " + parseInt(nextDay.main.temp)
             };
 
             var nextDay2Data = {
                 date : moment(nextDay2.dt_txt).format("MM/DD/YYYY"),
                 hum : "Humidity: " + nextDay2.main.humidity + "%",
-                temp : "Temp: " + nextDay2.main.temp + " F",
-                iconCode : nextDay2WeatherIcons.icon
+                temp : "Temp: " + parseInt(nextDay2.main.temp)
             };
 
             var nextDay3Data = {
                 date : moment(nextDay3.dt_txt).format("MM/DD/YYYY"),
                 hum : "Humidity: " + nextDay3.main.humidity + "%",
-                temp : "Temp: " + nextDay3.main.temp + " F",
-                iconCode : nextDay3WeatherIcons.icon
+                temp : "Temp: " + parseInt(nextDay3.main.temp)
             };
 
             var nextDay4Data = {
                 date : moment(nextDay4.dt_txt).format("MM/DD/YYYY"),
                 hum : "Humidity: " + nextDay4.main.humidity + "%",
-                temp : "Temp: " + nextDay4.main.temp + " F",
-                iconCode : nextDay4WeatherIcons.icon
+                temp : "Temp: " + parseInt(nextDay4.main.temp)
             };
 
             var nextDay5Data = {
                 date : moment(nextDay5.dt_txt).format("MM/DD/YYYY"),
                 hum : "Humidity: " + nextDay5.main.humidity + "%",
-                temp : "Temp: " + nextDay5.main.temp + " F",
-                iconCode : nextDay5WeatherIcons.icon
+                temp : "Temp: " + parseInt(nextDay5.main.temp)
             };
 
             $("#nextDayDate").text(nextDayData.date);
@@ -181,6 +177,11 @@ var UV;
                 apiDefaultURL = proxy + apiCurrentBaseString + defaultCity + apiCountry + apiKey + apiUnits;
                 getDefaultWeather(event);
 
+                $(".searchItem").on("click", function() {
+                    defaultCity = $(this).attr("data-city");
+                    apiDefaultURL = proxy + apiCurrentBaseString + defaultCity + apiCountry + apiKey + apiUnits;
+                    getDefaultWeather(event);
+                })
 });
 
 // var currentLat;
