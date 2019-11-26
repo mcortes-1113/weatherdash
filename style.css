@@ -106,3 +106,8 @@ body {
     color: #501b1d;
 }
 
+.searchItem {
+    width: 60%;
+    margin-bottom: 5px;
+}
+
