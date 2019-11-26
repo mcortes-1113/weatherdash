@@ -1,4 +1,3 @@
-$(document).ready(function(){
 
     var searchHistory = [];
     var lastCity;
@@ -12,40 +11,41 @@ $(document).ready(function(){
     lastCity = searchHistory[0];
     lastCity = lastCity ? lastCity = lastCity : "no recent searches";
 
-    // console.log("last search: " + lastCity);
-
-    // console.log(searchHistory);
-
     searchCount = searchHistory.length;
-    // console.log("search count: " + searchCount);  
+
+    populateSearchItems(event);
+
+    function populateSearchItems(event){
+        var searchItem;
+        searchHistory.reverse();
+        for (var i = 0; i < searchHistory.length; i++){
+            searchItem = searchHistory[i];
+            searchItemEl = "<button class=searchItem>" + searchItem + "</button><br>";
+            $("#searchHistoryItems").prepend(searchItemEl);
+        }};
 
     $("#searchButton").on("click", function(event) {
-
-
+        event.preventDefault();
         var currentSearch = $("#userInput").val();
-        if (searchCount > 4) {
-            // searchHistory.reverse();
+        if (searchCount > 9) {
             searchHistory.pop();
             searchHistory.reverse();
             searchHistory.push(currentSearch);
             searchHistory.reverse();
+            populateSearchItems(event)
         }   else {
             searchHistory.reverse();
             searchHistory.push(currentSearch)
             searchHistory.reverse();
+            populateSearchItems(event)
         }
-        searchCount = searchHistory.length;
-        // console.log("search history size: " + searchHistory.length);
-        // console.log("new search count: " + searchCount);
-        // console.log(searchHistory);
-
         var searchObj = {
             data: searchHistory,
             lastCity: currentSearch
         }
         localStorage.setItem("searchHistory", JSON.stringify(searchObj));
-        // console.log(JSON.parse(localStorage.searchHistory));
+    });
 
-    })
+    $(document).ready(function(){
 
 });
