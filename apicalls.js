@@ -79,72 +79,86 @@ var UV;
         }).then(function(apiFCastResponse) {
             var nextDay = apiFCastResponse.list[4];
             var nextDayWeatherIcons = nextDay.weather[0];
+            var nextDayIconCode = nextDayWeatherIcons.icon;
+            var nextDayIconSource = apiIconsBaseString + nextDayIconCode + ".png";
+            var nextDayIconEl = "<img src=" + nextDayIconSource + ">";
             var nextDay2 = apiFCastResponse.list[12];
             var nextDay2WeatherIcons = nextDay2.weather[0];
+            var nextDay2IconCode = nextDay2WeatherIcons.icon;
+            var nextDay2IconSource = apiIconsBaseString + nextDay2IconCode + ".png";
+            var nextDay2IconEl = "<img src=" + nextDay2IconSource + ">";
             var nextDay3 = apiFCastResponse.list[20];
             var nextDay3WeatherIcons = nextDay3.weather[0];
+            var nextDay3IconCode = nextDay3WeatherIcons.icon;
+            var nextDay3IconSource = apiIconsBaseString + nextDay3IconCode + ".png";
+            var nextDay3IconEl = "<img src=" + nextDay3IconSource + ">";
             var nextDay4 = apiFCastResponse.list[28];
             var nextDay4WeatherIcons = nextDay4.weather[0];
+            var nextDay4IconCode = nextDay4WeatherIcons.icon;
+            var nextDay4IconSource = apiIconsBaseString + nextDay4IconCode + ".png";
+            var nextDay4IconEl = "<img src=" + nextDay4IconSource + ">";
             var nextDay5 = apiFCastResponse.list[36];
             var nextDay5WeatherIcons = nextDay5.weather[0];
+            var nextDay5IconCode = nextDay5WeatherIcons.icon;
+            var nextDay5IconSource = apiIconsBaseString + nextDay5IconCode + ".png";
+            var nextDay5IconEl = "<img src=" + nextDay5IconSource + ">";
         
             var nextDayData = {
-                date : nextDay.dt_txt,
-                hum : nextDay.main.humidity,
-                temp : nextDay.main.temp,
-                icon : nextDayWeatherIcons.icon
+                date : moment(nextDay.dt_txt).format("MM/DD/YYYY"),
+                hum : "Humidity: " + nextDay.main.humidity + "%",
+                temp : "Temp: " + nextDay.main.temp + " F",
             };
 
             var nextDay2Data = {
-                date : nextDay2.dt_txt,
-                hum : nextDay2.main.humidity,
-                temp : nextDay2.main.temp,
-                icon : nextDay2WeatherIcons.icon
+                date : moment(nextDay2.dt_txt).format("MM/DD/YYYY"),
+                hum : "Humidity: " + nextDay2.main.humidity + "%",
+                temp : "Temp: " + nextDay2.main.temp + " F",
+                iconCode : nextDay2WeatherIcons.icon
             };
 
             var nextDay3Data = {
-                date : nextDay3.dt_txt,
-                hum : nextDay3.main.humidity,
-                temp : nextDay3.main.temp,
-                icon : nextDay3WeatherIcons.icon
+                date : moment(nextDay3.dt_txt).format("MM/DD/YYYY"),
+                hum : "Humidity: " + nextDay3.main.humidity + "%",
+                temp : "Temp: " + nextDay3.main.temp + " F",
+                iconCode : nextDay3WeatherIcons.icon
             };
 
             var nextDay4Data = {
-                date : nextDay4.dt_txt,
-                hum : nextDay4.main.humidity,
-                temp : nextDay4.main.temp,
-                icon : nextDay4WeatherIcons.icon
+                date : moment(nextDay4.dt_txt).format("MM/DD/YYYY"),
+                hum : "Humidity: " + nextDay4.main.humidity + "%",
+                temp : "Temp: " + nextDay4.main.temp + " F",
+                iconCode : nextDay4WeatherIcons.icon
             };
 
             var nextDay5Data = {
-                date : nextDay5.dt_txt,
-                hum : nextDay5.main.humidity,
-                temp : nextDay5.main.temp,
-                icon : nextDay5WeatherIcons.icon
+                date : moment(nextDay5.dt_txt).format("MM/DD/YYYY"),
+                hum : "Humidity: " + nextDay5.main.humidity + "%",
+                temp : "Temp: " + nextDay5.main.temp + " F",
+                iconCode : nextDay5WeatherIcons.icon
             };
 
             $("#nextDayDate").text(nextDayData.date);
-            $("#nextDayIcon").text(nextDayData.icon);
+            $("#nextDayIcon").prepend(nextDayIconEl);
             $("#nextDayTemp").text(nextDayData.temp);
             $("#nextDayHum").text(nextDayData.hum);
 
             $("#nextDay2Date").text(nextDay2Data.date);
-            $("#nextDay2Icon").text(nextDay2Data.icon);
+            $("#nextDay2Icon").prepend(nextDay2IconEl);
             $("#nextDay2Temp").text(nextDay2Data.temp);
             $("#nextDay2Hum").text(nextDay2Data.hum);
 
             $("#nextDay3Date").text(nextDay3Data.date);
-            $("#nextDay3Icon").text(nextDay3Data.icon);
+            $("#nextDay3Icon").prepend(nextDay3IconEl);
             $("#nextDay3Temp").text(nextDay3Data.temp);
             $("#nextDay3Hum").text(nextDay3Data.hum);
 
             $("#nextDay4Date").text(nextDay4Data.date);
-            $("#nextDay4Icon").text(nextDay4Data.icon);
+            $("#nextDay4Icon").prepend(nextDay4IconEl);
             $("#nextDay4Temp").text(nextDay4Data.temp);
             $("#nextDay4Hum").text(nextDay4Data.hum);
 
             $("#nextDay5Date").text(nextDay5Data.date);
-            $("#nextDay5Icon").text(nextDay5Data.icon);
+            $("#nextDay5Icon").prepend(nextDay5IconEl);
             $("#nextDay5Temp").text(nextDay5Data.temp);
             $("#nextDay5Hum").text(nextDay5Data.hum);
 
