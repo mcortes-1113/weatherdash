@@ -20,7 +20,7 @@
         searchHistory.reverse();
         for (var i = 0; i < searchHistory.length; i++){
             searchItem = searchHistory[i];
-            searchItemEl = "<button class=searchItem>" + searchItem + "</button><br>";
+            searchItemEl = "<button class=searchItem data-city=" + searchItem + ">" + searchItem + "</button><br>";
             $("#searchHistoryItems").prepend(searchItemEl);
         }};
 
