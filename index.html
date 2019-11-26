@@ -14,13 +14,13 @@
     <div id="headerWrapper">
         <span id="title" class="header" >Weather Dashboard</span>
         <!-- <br> -->
-        <span id="byLine" class="header" >by Mario Cortes</span> 
+        <!-- <span id="byLine" class="header" >by Mario Cortes</span>  -->
     </div>
 
     <div class="container" id="mainWrapper">
 
         <div class="row">            
-            <div class="col-md-3">
+            <!-- <div class="col-md-3">
                 <span class="currentLoc">Your location:  </span>
                 <span id="currentLoc" class="currentLoc"></span>
             </div>
@@ -32,9 +32,9 @@
 
             <div id="locationIcon" class="col-md-1">
                 <span class="currentLoc"></span>
-            </div>
+            </div> -->
 
-            <div id="searchDiv" class="col-md-4 offset-1">
+            <div id="searchDiv" class="col-md-12">
                 <form class="search">
                     <input id="userInput" size="22" type="text" placeholder="Search for a city..." name="search">
                     <button id="searchButton" type="submit"><i class="fa fa-search"></i></button>
@@ -43,26 +43,27 @@
         </div>
 
                 <div class="row">
-                    <div id="currentWeather" class="col-md-7">
-                        <span id="currentWeatherCity" class="currentWeatherText"></span>
+                    <div id="currentWeather" class="col-md-8">
                         <span id="currentWeatherDate" class="currentWeatherText"></span>
-                        <br><br><br>
-                        <span id="currentWeatherTemp" class="currentWeatherText">Current Temp:</span>
+                        <br>
+                        <span id="currentWeatherCity" class="currentWeatherText"></span>
                         <div id="currentWeatherIcon" class="currentWeatherText"></div>
                         <br><br>
-                        <span id="currentWeatherTempData" class="currentWeatherText">Temp placeholder</span>
+                        <span id="currentWeatherTemp" class="currentWeatherText">Current Temp:</span>
                         <br>
-                        <span id="currentWeatherHumidityData" class="currentWeatherText currentWeatherDetails"></span>
+                        <span id="currentWeatherTempData" class="currentWeatherText"></span>
+                        <br>
                         <span id="currentWeatherHumidityText" class="currentWeatherText currentWeatherDetails">Humidity:</span>
+                        <span id="currentWeatherHumidityData" class="currentWeatherText currentWeatherDetails"></span>
                         <br>
-                        <span id="currentWeatherWindSpeedData" class="currentWeatherText currentWeatherDetails">WindData</span>
                         <span id="currentWeatherWindSpeedText" class="currentWeatherText currentWeatherDetails">Wind Speed:</span>
+                        <span id="currentWeatherWindSpeedData" class="currentWeatherText currentWeatherDetails">WindData</span>
                         <br>
                         <span id="currentWeatherUVData" class="currentWeatherText currentWeatherDetails"></span>
-                        <span id="currentWeatherUVText" class="currentWeatherText currentWeatherDetails">UV Index:</span>
+                        <span id="currentWeatherUVText" class="currentWeatherText currentWeatherDetails"></span>
                     </div>
 
-                    <div class="col-md-1 gap"></div>
+                    <!-- <div class="col-md-1 gap"></div> -->
 
                     <div class="col-md-4 searchContainer">
                         <p id="searchHistoryText" >Your Search History:</p>
@@ -77,7 +78,7 @@
                         </div>
 
                                 <div class="row">
-                                    <div id="forecastDiv1" class="col-md-2 offset-1 forecastDiv">
+                                    <div id="forecastDiv1" class="col-md-2 forecastDiv">
                                         <span id="nextDayDate" ></span><br><br>
                                         <span id="nextDayIcon" ></span><br><br>
                                         <span id="nextDayTemp" ></span><br><br>
