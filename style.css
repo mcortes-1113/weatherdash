@@ -111,3 +111,11 @@ body {
     margin-bottom: 5px;
 }
 
+#forecastDiv1 {
+    margin-left: 35px;
+}
+
+#currentWeatherIcon {
+    background-color: #557A95;
+}
+
