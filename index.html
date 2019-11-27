@@ -9,139 +9,112 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Weather Dashboard</title>
 </head>
+
 <body>
 
     <div id="headerWrapper">
-        <span id="title" class="header" >Weather Dashboard</span>
-        <!-- <br> -->
-        <!-- <span id="byLine" class="header" >by Mario Cortes</span>  -->
+        <span id="title" class="header" >Weather Dashboard</span>=
     </div>
 
-    <div class="container" id="mainWrapper">
+        <div class="container" id="mainWrapper">
 
-        <div class="row">            
-            <!-- <div class="col-md-3">
-                <span class="currentLoc">Your location:  </span>
-                <span id="currentLoc" class="currentLoc"></span>
-            </div>
-            
-            <div class="col-md-3">
-                <span class="currentLoc">Current Temp:  </span>
-                <span id="currentTemp" class="currentLoc"></span>
-            </div>
-
-            <div id="locationIcon" class="col-md-1">
-                <span class="currentLoc"></span>
-            </div> -->
-
-            <div id="searchDiv" class="col-md-12">
-                <form class="search">
-                    <input id="userInput" size="22" type="text" placeholder="Search for a city..." name="search">
-                    <button id="searchButton" type="submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div>
-        </div>
-
-                <div class="row">
-                    <div id="currentWeather" class="col-md-8">
-                        <span id="currentWeatherDate" class="currentWeatherText"></span>
-                        <br>
-                        <span id="currentWeatherCity" class="currentWeatherText"></span>
-                        <div id="currentWeatherIcon" class="currentWeatherText"></div>
-                        <br><br>
-                        <span id="currentWeatherTemp" class="currentWeatherText">Current Temp:</span>
-                        <br>
-                        <span id="currentWeatherTempData" class="currentWeatherText"></span>
-                        <br>
-                        <span id="currentWeatherHumidityText" class="currentWeatherText currentWeatherDetails">Humidity:</span>
-                        <span id="currentWeatherHumidityData" class="currentWeatherText currentWeatherDetails"></span>
-                        <br>
-                        <span id="currentWeatherWindSpeedText" class="currentWeatherText currentWeatherDetails">Wind Speed:</span>
-                        <span id="currentWeatherWindSpeedData" class="currentWeatherText currentWeatherDetails">WindData</span>
-                        <br>
-                        <span id="currentWeatherUVData" class="currentWeatherText currentWeatherDetails"></span>
-                        <span id="currentWeatherUVText" class="currentWeatherText currentWeatherDetails"></span>
-                    </div>
-
-                    <!-- <div class="col-md-1 gap"></div> -->
-
-                    <div class="col-md-4 searchContainer">
-                        <p id="searchHistoryText" >Your Search History:</p>
-                        <div id="searchHistoryItems"></div>
-                    </div>
+            <div class="row">            
+                <!-- <div class="col-md-3">
+                    <span class="currentLoc">Your location:  </span>
+                    <span id="currentLoc" class="currentLoc"></span>
+                </div>
+                
+                <div class="col-md-3">
+                    <span class="currentLoc">Current Temp:  </span>
+                    <span id="currentTemp" class="currentLoc"></span>
                 </div>
 
-                        <div class="row">
-                            <div class="col-md-12">
-                            <span class="forecastText">5 Day Forecast:</span>
-                            </div>
+                <div id="locationIcon" class="col-md-1">
+                    <span class="currentLoc"></span>
+                </div> -->
+
+                <div id="searchDiv" class="col-md-12">
+                    <form class="search">
+                        <input id="userInput" size="22" type="text" placeholder="Search for a city..." name="search">
+                        <button id="searchButton" type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+
+                    <div class="row">
+                        <div id="currentWeather" class="col-md-8">
+                            <span id="currentWeatherDate" class="currentWeatherText"></span>
+                            <br>
+                            <span id="currentWeatherCity" class="currentWeatherText"></span>
+                            <img id="currentWeatherIcon" class="currentWeatherText" width=150px height=150px>
+                            <br><br>
+                            <span id="currentWeatherTemp" class="currentWeatherText">Current Temp:</span>
+                            <br>
+                            <span id="currentWeatherTempData" class="currentWeatherText"></span>
+                            <br>
+                            <span id="currentWeatherHumidityText" class="currentWeatherText currentWeatherDetails">Humidity:</span>
+                            <span id="currentWeatherHumidityData" class="currentWeatherText currentWeatherDetails"></span>
+                            <br>
+                            <span id="currentWeatherWindSpeedText" class="currentWeatherText currentWeatherDetails">Wind Speed:</span>
+                            <span id="currentWeatherWindSpeedData" class="currentWeatherText currentWeatherDetails">WindData</span>
+                            <br>
+                            <span id="currentWeatherUVData" class="currentWeatherText currentWeatherDetails"></span>
+                            <span id="currentWeatherUVText" class="currentWeatherText currentWeatherDetails"></span>
                         </div>
 
-                                <div class="row">
-                                    <div id="forecastDiv1" class="col-md-2 forecastDiv">
-                                        <span id="nextDayDate" ></span><br><br>
-                                        <span id="nextDayIcon" ></span><br><br>
-                                        <span id="nextDayTemp" ></span><br><br>
-                                        <span id="nextDayHum" ></span><br>
-                                    </div>
-                                    <div class="col-md-2 forecastDiv">
-                                        <span id="nextDay2Date" ></span><br><br>
-                                        <span id="nextDay2Icon" ></span><br><br>
-                                        <span id="nextDay2Temp" ></span><br><br>
-                                        <span id="nextDay2Hum" ></span><br>
-                                    </div>
-                                    <div class="col-md-2 forecastDiv">
-                                        <span id="nextDay3Date" ></span><br><br>
-                                        <span id="nextDay3Icon" ></span><br><br>
-                                        <span id="nextDay3Temp" ></span><br><br>
-                                        <span id="nextDay3Hum" ></span><br>
-                                    </div>
-                                    <div class="col-md-2 forecastDiv">
-                                        <span id="nextDay4Date" ></span><br><br>
-                                        <span id="nextDay4Icon" ></span><br><br>
-                                        <span id="nextDay4Temp" ></span><br><br>
-                                        <span id="nextDay4Hum" ></span><br>
-                                    </div>
-                                    <div class="col-md-2 forecastDiv">
-                                        <span id="nextDay5Date" ></span><br><br>
-                                        <span id="nextDay5Icon" ></span><br><br>
-                                        <span id="nextDay5Temp" ></span><br><br>
-                                        <span id="nextDay5Hum" ></span><br>
-                                    </div>
+                        <!-- <div class="col-md-1 gap"></div> -->
+
+                        <div class="col-md-4 searchContainer">
+                            <p id="searchHistoryText" >Your Search History:</p>
+                            <div id="searchHistoryItems"></div>
+                        </div>
+                    </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                <span class="forecastText">5 Day Forecast:</span>
                                 </div>
+                            </div>
 
-    </div>
-
-
-    <!-- <div id="current">
-            <br><br><br><br>
-            <button id="currenttestbtn" >Test Current API Call</button>
-        </div> -->
-
-                    <!-- <div id="searchhis">
-                            <br><br><br><br>
-                            <input type="text" size="40" id="userSearchInput">
-                            <br><br>
-                            <button id="searchtestbtn" >Test Search History</button>
-                    </div>
-
-                    <div id="fcast">
-                        <br><br><br><br>
-                        <button id="fcasttestbtn" >Test Forecast API Call</button>
-                    </div>
-                    <div id="uv">
-                        <br><br><br><br>
-                        <button id="uvtestbtn" >Test UV API Call</button>
-                    </div> -->
-
-    </div>
+                                    <div class="row">
+                                        <div id="forecastDiv1" class="col-md-2 forecastDiv">
+                                            <span id="nextDayDate" class="forecastDetails" ></span><br>
+                                            <img class="forecastIcon" id="nextDayIcon" width=50px height=50px><br>
+                                            <span id="nextDayTemp" class="forecastDetails"></span><br>
+                                            <span id="nextDayHum" class="forecastDetails"></span>
+                                        </div>
+                                        <div class="col-md-2 forecastDiv">
+                                            <span id="nextDay2Date" class="forecastDetails"></span><br>
+                                            <img class="forecastIcon" id="nextDay2Icon" width=50px height=50px><br>
+                                            <span id="nextDay2Temp" class="forecastDetails"></span><br>
+                                            <span id="nextDay2Hum" class="forecastDetails"></span>
+                                        </div>
+                                        <div class="col-md-2 forecastDiv">
+                                            <span id="nextDay3Date" class="forecastDetails"></span><br>
+                                            <img class="forecastIcon" id="nextDay3Icon" width=50px height=50px><br>
+                                            <span id="nextDay3Temp" class="forecastDetails"></span><br>
+                                            <span id="nextDay3Hum" class="forecastDetails"></span>
+                                        </div>
+                                        <div class="col-md-2 forecastDiv">
+                                            <span id="nextDay4Date" class="forecastDetails"></span><br>
+                                            <img class="forecastIcon" id="nextDay4Icon" width=50px height=50px><br>
+                                            <span id="nextDay4Temp" class="forecastDetails"></span><br>
+                                            <span id="nextDay4Hum" class="forecastDetails"></span>
+                                        </div>
+                                        <div class="col-md-2 forecastDiv">
+                                            <span id="nextDay5Date" class="forecastDetails"></span><br>
+                                            <img id="nextDay5Icon" width=50px height=50px><br>
+                                            <span id="nextDay5Temp" class="forecastDetails"></span><br>
+                                            <span id="nextDay5Hum" class="forecastDetails"></span>
+                                        </div>
+                                    </div>
+        </div>
 
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="apicalls.js"></script>
-    <script src="domscript.js"></script>
-    <script src="localstorage.js"></script>
+    <script src="localstorage.js"></script> 
 
 </body>
 </html>
