@@ -107,10 +107,9 @@ body {
 
 .searchItem {
     width: 60%;
-    margin-bottom: 5px;
+    margin-bottom: 1px;
 }
 
 #currentWeatherIcon {
     background-color: #557A95;
 }
-
